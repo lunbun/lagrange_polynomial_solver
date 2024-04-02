@@ -5,12 +5,8 @@ compute the coefficients of the resulting polynomial. Out-of-the-box, this CLI t
 with double-precision floating-point or Galois field arithmetic, but the library can be easily extended to support
 other arithmetic types. Multithreaded computation is supported.
 
-*Note: this solver uses optimized versions of classical $`O(n^2)`$ algorithms for interpolating polynomials. As such, it
-is only capable of interpolating up to a few hundred thousand points in reasonable time. If you need to interpolate
-millions of points, particularly over a Galois field, there are ways to do it in $`O(n\log{n})`$ time given certain
-constraints on the input using IFFTs (see [this](https://decentralizedthoughts.github.io/2023-09-01-FFT/) and
-[this](https://en.wikipedia.org/wiki/Discrete_Fourier_transform_over_a_ring)), but that is for someone much smarter than
-me to work out ;)*
+*Note: if you are interpolating over a Galois field, do not use this, use
+[FLINT](https://flintlib.org/doc/nmod_poly.html#c.nmod_poly_interpolate_nmod_vec_fast) as it is much, much faster.*
 
 ## Benchmarks
 
